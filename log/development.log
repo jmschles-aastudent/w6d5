@@ -47,3 +47,1223 @@ Migrating to RemoveSecret (20130621163129)
   [1m[35m (2.1ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
 Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-06-21 09:47:45 -0700
+Connecting to database specified by database.yml
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (94.4ms)
+Compiled sessions.css  (31ms)  (pid 94616)
+Compiled todo_lists.css  (2ms)  (pid 94616)
+Compiled users.css  (3ms)  (pid 94616)
+Compiled application.css  (163ms)  (pid 94616)
+Compiled jquery.js  (2ms)  (pid 94616)
+Compiled jquery_ujs.js  (0ms)  (pid 94616)
+Compiled underscore.js  (0ms)  (pid 94616)
+Compiled sessions.js  (507ms)  (pid 94616)
+Compiled todo_lists.js  (211ms)  (pid 94616)
+Compiled users.js  (212ms)  (pid 94616)
+Compiled application.js  (1239ms)  (pid 94616)
+Completed 200 OK in 1914ms (Views: 1883.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 09:47:47 -0700
+Served asset /todo_lists.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:47 -0700
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 09:47:47 -0700
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /jquery_ujs.js - 200 OK (4ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /underscore.js - 200 OK (4ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /sessions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /todo_lists.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /application.css - 200 OK (12ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /users.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:48 -0700
+Served asset /application.js - 200 OK (33ms)
+
+
+Started GET "/todo_lists/new" for 127.0.0.1 at 2013-06-21 09:47:54 -0700
+Processing by TodoListsController#new as HTML
+  Rendered todo_lists/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:54 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 09:47:54 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 09:47:54 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 09:47:54 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started POST "/todo_lists" for 127.0.0.1 at 2013-06-21 09:48:07 -0700
+Processing by TodoListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y1gFlq5F2/XFbSPcVAcBx4lmfhDxEYBTPp/JYL7UK7U=", "todo_list"=>{"title"=>"Shopping"}, "commit"=>"Create Todo list"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (38.1ms)[0m  INSERT INTO "todo_lists" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 21 Jun 2013 16:48:07 UTC +00:00], ["title", "Shopping"], ["updated_at", Fri, 21 Jun 2013 16:48:07 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todo_lists
+Completed 302 Found in 46ms (ActiveRecord: 39.0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 09:48:07 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  Rendered todo_lists/index.html.erb within layouts/application (48.3ms)
+Completed 500 Internal Server Error in 53ms
+
+NoMethodError - undefined method `todo_items' for #<TodoList:0x00000101ea1bc0>:
+  activemodel (3.2.11) lib/active_model/attribute_methods.rb:407:in `method_missing'
+  activerecord (3.2.11) lib/active_record/attribute_methods.rb:149:in `method_missing'
+  activemodel (3.2.11) lib/active_model/serialization.rb:133:in `block in serializable_add_includes'
+  activemodel (3.2.11) lib/active_model/serialization.rb:132:in `serializable_add_includes'
+  activemodel (3.2.11) lib/active_model/serialization.rb:87:in `serializable_hash'
+  activerecord (3.2.11) lib/active_record/serialization.rb:13:in `serializable_hash'
+  activemodel (3.2.11) lib/active_model/serializers/json.rb:96:in `as_json'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:55:in `block in as_json'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:77:in `check_for_circular_references'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:54:in `as_json'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:215:in `block in as_json'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:215:in `as_json'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:47:in `block in encode'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:77:in `check_for_circular_references'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:46:in `encode'
+  activesupport (3.2.11) lib/active_support/json/encoding.rb:31:in `encode'
+  activesupport (3.2.11) lib/active_support/core_ext/object/to_json.rb:16:in `to_json'
+  app/views/todo_lists/index.html.erb:5:in `_app_views_todo_lists_index_html_erb__2056710590773658349_2154917540'
+  actionpack (3.2.11) lib/action_view/template.rb:145:in `block in render'
+  activesupport (3.2.11) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.11) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.11) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.11) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.11) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.11) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.11) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.11) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.11) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.11) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.11) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.11) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.11) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.11) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.11) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.11) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.11) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.11) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.11) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.11) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.11) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.11) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.11) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.11) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.11) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.11) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.11) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.11) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.11) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:414:in `_run__4294206645863403450__process_action__1292238534291470214__callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.11) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.11) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.11) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.11) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.11) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.11) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.11) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.11) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.11) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.11) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.11) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.11) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.11) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.11) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:405:in `_run__328015920008661622__call__4162698834229235385__callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.11) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2155325560/variables" for 127.0.0.1 at 2013-06-21 09:48:08 -0700
+Connecting to database specified by database.yml
+
+
+Started POST "/todo_lists" for 127.0.0.1 at 2013-06-21 09:49:33 -0700
+Processing by TodoListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y1gFlq5F2/XFbSPcVAcBx4lmfhDxEYBTPp/JYL7UK7U=", "todo_list"=>{"title"=>"Shopping"}, "commit"=>"Create Todo list"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (30.0ms)[0m  INSERT INTO "todo_lists" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 21 Jun 2013 16:49:33 UTC +00:00], ["title", "Shopping"], ["updated_at", Fri, 21 Jun 2013 16:49:33 UTC +00:00]]
+  [1m[36m (25.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todo_lists
+Completed 302 Found in 58ms (ActiveRecord: 55.0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 09:49:33 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.1ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (123.7ms)
+Completed 200 OK in 198ms (Views: 196.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 09:49:33 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 09:49:33 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 09:49:33 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 09:49:33 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:28 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 09:51:41 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 09:57:08 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 09:59:49 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:01:10 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:03:56 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:04:03 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:04:04 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 68ms (Views: 66.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:04:04 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:04:10 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.3ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:04:11 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.1ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-06-21 10:05:35 -0700
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:05:56 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:21 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.8ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:47:58 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:48:47 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:48:48 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:40 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists/new" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Processing by TodoListsController#new as HTML
+  Rendered todo_lists/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:51:42 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/todo_lists" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Processing by TodoListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y1gFlq5F2/XFbSPcVAcBx4lmfhDxEYBTPp/JYL7UK7U=", "todo_list"=>{"title"=>"Cats to Pet"}, "commit"=>"Create Todo list"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "todo_lists" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 21 Jun 2013 17:52:04 UTC +00:00], ["title", "Cats to Pet"], ["updated_at", Fri, 21 Jun 2013 17:52:04 UTC +00:00]]
+  [1m[35m (14.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/todo_lists
+Completed 302 Found in 17ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Processing by TodoListsController#index as HTML
+  [1m[36mTodoList Load (0.2ms)[0m  [1mSELECT "todo_lists".* FROM "todo_lists" [0m
+  [1m[35mTodoItem Load (0.2ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2
+  [1m[36mTodoItem Load (0.1ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 3[0m
+  Rendered todo_lists/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:04 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  [1m[35mTodoItem Load (0.2ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 3
+  Rendered todo_lists/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:25 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Processing by TodoListsController#index as HTML
+  [1m[36mTodoList Load (0.2ms)[0m  [1mSELECT "todo_lists".* FROM "todo_lists" [0m
+  [1m[35mTodoItem Load (0.2ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2
+  [1m[36mTodoItem Load (0.1ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 3[0m
+  Rendered todo_lists/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:52:45 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  [1m[35mTodoItem Load (0.2ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 3
+  Rendered todo_lists/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:21 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/todo_lists/new" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Processing by TodoListsController#new as HTML
+  Rendered todo_lists/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:31 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/todo_lists" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Processing by TodoListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y1gFlq5F2/XFbSPcVAcBx4lmfhDxEYBTPp/JYL7UK7U=", "todo_list"=>{"title"=>"People to Bother"}, "commit"=>"Create Todo list"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "todo_lists" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 21 Jun 2013 17:53:38 UTC +00:00], ["title", "People to Bother"], ["updated_at", Fri, 21 Jun 2013 17:53:38 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todo_lists
+Completed 302 Found in 3ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/todo_lists" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.2ms)[0m  SELECT "todo_lists".* FROM "todo_lists" 
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 2[0m
+  [1m[35mTodoItem Load (0.2ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 3
+  [1m[36mTodoItem Load (0.2ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."list_id" = 4[0m
+  Rendered todo_lists/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /todo_lists.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /underscore.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/todo_lists.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /todo_lists.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-06-21 10:53:38 -0700
+Served asset /sessions.js - 304 Not Modified (0ms)

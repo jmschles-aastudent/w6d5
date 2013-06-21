@@ -1,0 +1,28 @@
+<h2>Todo Lists</h2>
+<h4><em>Aw, shit!</em></h4>
+
+<div id="lists">
+
+</div>
+
+<%= button_to "Make New List", new_todo_list_url, :method => :get %>
+
+<script type="application/json" id="all_lists">
+	<%= @todo_lists.to_json(:include => :items).html_safe %>
+</script>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		var tasks = JSON.parse($('#all_lists').html());
+		var list_div = $('#lists');
+		_.each(tasks, function(list, i) {
+			var $p = $('<p></p>');
+			var list_link = $('<a href="#">' + list.title + '</a>');
+			list_link.attr('id', 'list_' + i);
+			$p.html(list_link);
+			list_div.append($p);
+		});
+	});
+</script>

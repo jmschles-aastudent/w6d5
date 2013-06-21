@@ -1,2 +1,19 @@
 class TodoListsController < ApplicationController
+
+	def index
+		@todo_lists = TodoList.all
+	end
+
+	def create
+		@todo_list = TodoList.new(params[:todo_list])
+		if @todo_list.save
+			redirect_to todo_lists_url
+		else
+			render :new
+		end
+	end
+
+	def new
+		@todo_list = TodoList.new
+	end
 end
