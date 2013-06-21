@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621162450) do
-
-  create_table "secrets", :force => true do |t|
-    t.string   "title",        :null => false
-    t.integer  "author_id",    :null => false
-    t.integer  "recipient_id", :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130621163129) do
 
   create_table "todo_items", :force => true do |t|
     t.text     "name"
