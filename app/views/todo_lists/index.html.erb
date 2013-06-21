@@ -1,5 +1,10 @@
+<style>
+	.hidden {
+		visibility: hidden;
+	}
+</style>
+
 <h2>Todo Lists</h2>
-<h4><em>Aw, shit!</em></h4>
 
 <div id="lists">
 
@@ -11,7 +16,7 @@
 	<%= @todo_lists.to_json(:include => :items).html_safe %>
 </script>
 
-
+<%= File.read("./app/views/todo_lists/_show.html").html_safe %>
 
 <script type="text/javascript">
 	$(function() {
@@ -23,6 +28,30 @@
 			list_link.attr('id', 'list_' + i);
 			$p.html(list_link);
 			list_div.append($p);
+
+			var templateCode = $("#list_items").html();
+			var templateFunction = _.template(templateCode);
+			var renderedTemplate = templateFunction({
+				items: list.items
+			});
+			// $p.find('ul').remove();
+			$p.append(renderedTemplate);
+			$p.find('ul').hide();
+			$('#list_' + i).click(function () {
+				console.log(this);
+				$p.find('ul').toggle('slow');
+			});
+			
+
+			// $('#list_' + i).click(function () {
+			// 	var templateCode = $("#list_items").html();
+			// 	var templateFunction = _.template(templateCode);
+			// 	var renderedTemplate = templateFunction({
+			// 		items: list.items
+			// 	});
+			// 	$p.find('ul').remove();
+			// 	$p.append(renderedTemplate);
+			// });
 		});
 	});
 </script>
