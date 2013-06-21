@@ -1,0 +1,8 @@
+<script type="text/template" id="add_item_field">
+	<% unique_num = (new Date).getTime() %>
+	<% input_id = "todo_list_item_" + unique_num %>
+	<% name = "todo_list[items_attributes][" + unique_num + "][name]" %>
+
+	<br />
+	<input type="text" name="<%= name %>" id="<%= input_id %>">
+</script>

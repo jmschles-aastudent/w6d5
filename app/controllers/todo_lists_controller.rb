@@ -7,6 +7,7 @@ class TodoListsController < ApplicationController
 
 	def create
 		@todo_list = TodoList.new(params[:todo_list])
+		# @todo_list.items.build(params[:todo_list][:items])
 		@todo_list.save!
 		# if @todo_list.save
 		# 	redirect_to todo_lists_url

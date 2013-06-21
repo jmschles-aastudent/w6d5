@@ -12,8 +12,15 @@
 	:html => { :id => "new_list_form" }) do |f| %>
 	<%= f.label :title, "List Title" %>
 	<%= f.text_field :title %>
-	<br>
 
+	<br />
+
+	<p>Add items</p>
+	<div id="add_list_items">
+		<input type="text" name="todo_list[items_attributes][0][name]" id="todo_list_item_0">
+	</div>
+	<a href="#" id="another_item">Add another item to list</a>
+	<br />
 	<%= f.submit %>
 <% end %>
 
@@ -23,6 +30,7 @@
 </script>
 
 <%= File.read("./app/views/todo_lists/_show.html").html_safe %>
+<%= File.read("./app/views/todo_lists/_add_item.html").html_safe %>
 
 <script type="text/javascript">
 	$(function() {
@@ -46,30 +54,38 @@
 				});
 				$p.append(renderedTemplate);
 				$p.find('ul').hide();
-				$('#list_' + i).click(function () {
-					console.log(this);
-					$p.find('ul').toggle('slow');
-				});
 			});
 		}
 
+		// list_div.find('a')
+		// $('#list_' + i)
+
 		render(TASKS);
+
+		list_div.on('click', 'p', function () {
+			console.log(this);
+			$(this).find('ul').toggle('slow');
+		});
 
 		$("#new_list_form").on('ajax:success', function(event, data) {
 			var $p = $('<p></p>');
 			var list_link = $('<a href="#"></a>');
-			list_link.attr('id', 'list_' + (JSON.parse(TASKS).length))
+			list_link.attr('id', 'list_' + (JSON.parse(TASKS).length));
 			list_link.text(data.title);
 			$p.html(list_link);
 			$('#lists').append($p);
+
 			parsed_tasks = JSON.parse(TASKS);
 			parsed_tasks.push(data);
 			obj_string = JSON.stringify(parsed_tasks);
 			TASKS = obj_string;
 		});
-	});
-</script>
 
-<script type="text/javascript">
-	
+		$("#another_item").click(function () {
+			var addItemCode = $("#add_item_field").html();
+			var addItemFunction = _.template(addItemCode);
+			var renderedItem = addItemFunction();
+			$("#add_list_items").append(renderedItem);
+		});
+	});
 </script>
