@@ -41,12 +41,16 @@
 		function render(tasks) {
 			var tasks = JSON.parse(tasks);
 			_.each(tasks, function(list, i) {
-				var $p = $('<p></p>');
+				var $p = $('<p id="' + list.id + '"></p>');
+				var delete_link = $('<a href="#" class="item_obliterator"></a>');
+				delete_link.text("delete");
+				
 				var list_link = $('<a href="#">' + list.title + '</a>');
 				list_link.attr('id', 'list_' + i);
-				$p.html(list_link);
-				list_div.append($p);
-
+				$p.append(list_link);
+				list_div.html($p);
+				$p.append(' | ')
+				$p.append(delete_link[0]);
 				var templateCode = $("#list_items").html();
 				var templateFunction = _.template(templateCode);
 				var renderedTemplate = templateFunction({
@@ -62,10 +66,36 @@
 
 		render(TASKS);
 
-		list_div.on('click', 'p', function () {
+		list_div.on('click', 'a', function () {
 			event.preventDefault();
-			$(this).find('ul').toggle('slow');
+			$(this).parent().find('ul').toggle('slow');
 		});
+
+		list_div.on('click', 'a.item_obliterator', function() {
+			event.preventDefault();
+			var item = $(this).parent();
+
+			ItemObliterator(item);
+			$(this).parent().remove();
+		});
+
+		list_div.on('click', 'a.list_obliterator', function() {
+			event.preventDefault();
+			var list = $(this).parent();
+			console.log(list);
+		});
+
+		function ItemObliterator(item) {
+			var itemId = item.attr('id');
+			// var parentId = item.parent().parent().attr('id');
+			var url = '/todo_items/' + itemId;
+
+			$.post(url, { "_method": "delete" });
+		}
+
+		// function ListObliterator(list) {
+		// 	var listId = list.attr('id');
+		// }
 
 		$("#new_list_form").on('ajax:success', function(event, data) {
 			var $p = $('<p></p>');
@@ -91,10 +121,13 @@
 		});
 
 		$("#another_item").click(function () {
+			event.preventDefault();
 			var addItemCode = $("#add_item_field").html();
 			var addItemFunction = _.template(addItemCode);
 			var renderedItem = addItemFunction();
 			$("#add_list_items").append(renderedItem);
 		});
+
+
 	});
 </script>

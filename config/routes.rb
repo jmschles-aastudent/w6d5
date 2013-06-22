@@ -3,7 +3,6 @@ AjaxDemo::Application.routes.draw do
 
   resource :session
   resources :users
-  resources :todo_lists, :only => [:create, :index, :new] do
-  	resource :todo_item
-  end
+  resources :todo_lists, :only => [:create, :index, :new]
+ 	resources :todo_items, :only => [:create, :destroy]
 end

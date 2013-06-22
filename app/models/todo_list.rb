@@ -6,7 +6,8 @@ class TodoList < ActiveRecord::Base
   has_many :items,
   	:class_name => "TodoItem",
   	:foreign_key => "list_id",
-  	:inverse_of => :list
+  	:inverse_of => :list,
+  	:dependent => :destroy
 
   def as_json (options = {})
   	super(options.merge({:include => :items}))

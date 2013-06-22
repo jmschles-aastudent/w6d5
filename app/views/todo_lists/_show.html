@@ -1,8 +1,8 @@
 <script type="text/template" id="list_items">
 	<ul>
 		<% _.each(items, function(item, idx) { %>
-			<li>
-				<%= item.name %>
+			<li id=<%= item.id %>>
+				<%= item.name %> | <a href="#" class="item_obliterator">delete</a>
 			</li>
 		<% }); %>
 	</ul>
