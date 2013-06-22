@@ -63,7 +63,7 @@
 		render(TASKS);
 
 		list_div.on('click', 'p', function () {
-			console.log(this);
+			event.preventDefault();
 			$(this).find('ul').toggle('slow');
 		});
 
@@ -74,6 +74,15 @@
 			list_link.text(data.title);
 			$p.html(list_link);
 			$('#lists').append($p);
+
+			var templateCode = $("#list_items").html();
+			var templateFunction = _.template(templateCode);
+			var renderedTemplate = templateFunction({
+				items: data.items
+			});
+
+			$p.append(renderedTemplate);
+			$p.find('ul').hide();
 
 			parsed_tasks = JSON.parse(TASKS);
 			parsed_tasks.push(data);

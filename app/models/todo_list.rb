@@ -8,5 +8,9 @@ class TodoList < ActiveRecord::Base
   	:foreign_key => "list_id",
   	:inverse_of => :list
 
+  def as_json (options = {})
+  	super(options.merge({:include => :items}))
+  end
+
   accepts_nested_attributes_for :items
 end
