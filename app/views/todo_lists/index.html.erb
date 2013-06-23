@@ -43,7 +43,7 @@
 			var tasks = JSON.parse(tasks);
 			_.each(tasks, function(list, i) {
 
-				var listTempCode = $("#current_lists").html();
+				var listTempCode = $("#list_links").html();
 				var listTempFn = _.template(listTempCode);
 				var renderedListTemp = listTempFn({
 					list: list
@@ -104,12 +104,27 @@
 		}
 
 		$("#new_list_form").on('ajax:success', function(event, data) {
+			// new code
+			var listTempCode = $("#list_links").html();
+			var listTempFn = _.template(listTempCode);
+			var renderedListTemp = listTempFn({
+				list: data
+			});
+
 			var $p = $('<p></p>');
-			var list_link = $('<a href="#"></a>');
-			list_link.attr('id', 'list_' + (JSON.parse(TASKS).length));
-			list_link.text(data.title);
-			$p.html(list_link);
+			$p.attr('id', data.id);
+			$p.html(renderedListTemp);
+		
+			$p.children('a:first-child').attr('id', 'list_' + (JSON.parse(TASKS).length));
 			$('#lists').append($p);
+
+			// old code
+			// var $p = $('<p></p>');
+			// var list_link = $('<a href="#"></a>');
+			// list_link.attr('id', 'list_' + (JSON.parse(TASKS).length));
+			// list_link.text(data.title);
+			// $p.html(list_link);
+			// $('#lists').append($p);
 
 			var templateCode = $("#list_items").html();
 			var templateFunction = _.template(templateCode);
