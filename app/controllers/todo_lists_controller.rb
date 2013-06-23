@@ -24,4 +24,11 @@ class TodoListsController < ApplicationController
 	def new
 		@todo_list = TodoList.new
 	end
+
+	def destroy
+		@todo_list = TodoList.find(params[:id])
+		@todo_list.destroy
+
+		render :text => "yay!"
+	end
 end

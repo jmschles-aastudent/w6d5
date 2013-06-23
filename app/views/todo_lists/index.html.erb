@@ -31,6 +31,7 @@
 
 <%= File.read("./app/views/todo_lists/_show.html").html_safe %>
 <%= File.read("./app/views/todo_lists/_add_item.html").html_safe %>
+<%= File.read("./app/views/todo_lists/_render_list_links.html").html_safe %>
 
 <script type="text/javascript">
 	$(function() {
@@ -41,16 +42,20 @@
 		function render(tasks) {
 			var tasks = JSON.parse(tasks);
 			_.each(tasks, function(list, i) {
-				var $p = $('<p id="' + list.id + '"></p>');
-				var delete_link = $('<a href="#" class="item_obliterator"></a>');
-				delete_link.text("delete");
-				
-				var list_link = $('<a href="#">' + list.title + '</a>');
-				list_link.attr('id', 'list_' + i);
-				$p.append(list_link);
-				list_div.html($p);
-				$p.append(' | ')
-				$p.append(delete_link[0]);
+
+				var listTempCode = $("#current_lists").html();
+				var listTempFn = _.template(listTempCode);
+				var renderedListTemp = listTempFn({
+					list: list
+				});
+
+				var $p = $('<p></p>');
+				$p.attr('id', list.id);
+				$p.html(renderedListTemp);
+			
+				$p.children('a:first-child').attr('id', 'list_' + i);
+				list_div.append($p);
+		
 				var templateCode = $("#list_items").html();
 				var templateFunction = _.template(templateCode);
 				var renderedTemplate = templateFunction({
@@ -61,12 +66,9 @@
 			});
 		}
 
-		// list_div.find('a')
-		// $('#list_' + i)
-
 		render(TASKS);
 
-		list_div.on('click', 'a', function () {
+		list_div.on('click', 'p a:first-child', function () {
 			event.preventDefault();
 			$(this).parent().find('ul').toggle('slow');
 		});
@@ -76,26 +78,30 @@
 			var item = $(this).parent();
 
 			ItemObliterator(item);
-			$(this).parent().remove();
+			item.remove();
 		});
 
 		list_div.on('click', 'a.list_obliterator', function() {
 			event.preventDefault();
 			var list = $(this).parent();
-			console.log(list);
+			
+			ListObliterator(list);
+			list.remove();
 		});
 
 		function ItemObliterator(item) {
 			var itemId = item.attr('id');
-			// var parentId = item.parent().parent().attr('id');
 			var url = '/todo_items/' + itemId;
 
 			$.post(url, { "_method": "delete" });
 		}
 
-		// function ListObliterator(list) {
-		// 	var listId = list.attr('id');
-		// }
+		function ListObliterator(list) {
+			var listId = list.attr('id');
+			var url = '/todo_lists/' + listId;
+
+			$.post(url, { "_method": "delete" });
+		}
 
 		$("#new_list_form").on('ajax:success', function(event, data) {
 			var $p = $('<p></p>');
